@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>Hobby Tracker</h1>
+
+    <form id="hobbyForm">
+
+        <label for="hobby">Hobby:</label>
+        <select id="hobby" name="hobby" required>
+            <option value="">Select Hobby</option>
+            <option>Gym</option>
+            <option>Rock Climbing</option>
+            <option>Reading</option>
+            <option>Scrolling</option>
+            <option>Video Games</option>
+            <option>Being With Friends</option>
+        </select>
+
+        <label for="minutes">Minutes Completed:</label>
+        <input type="number" id="minutes" name="minutes"
+               min="1" step="1" required>
+
+        <label for="dayOfWeek">Day of Week:</label>
+        <select id="dayOfWeek" name="dayOfWeek" required>
+            <option value="">Select Day</option>
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+        </select>
+
+        <button type="submit">Save Entry</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <div id="entries"></div>
+
+    <div class="navigation">
+        <a href="/tracker/v1/dashboard">Dashboard</a>
+        <button id="clearButton">Clear All</button>
+    </div>
+
+    <script src="js/tracker.js"></script>
+
+</body>
+</html>
