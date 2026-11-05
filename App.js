@@ -141,9 +141,7 @@ app.post("/tracker/v2/form", (req, res) => {
     hobbies.push(newEntry);
 
     res.cookie("hobbies_v2", JSON.stringify(hobbies), {
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: true,
-        sameSite: "lax"
+        maxAge: 7 * 24 * 60 * 60 * 1000
     });
 
     // Return to the form without displaying the submitted data.
@@ -152,11 +150,7 @@ app.post("/tracker/v2/form", (req, res) => {
 
 // Retrieve hobby data
 app.get("/tracker/v2/data", (req, res) => {
-    const hobbies = req.cookies.hobbies_v2
-        ? JSON.parse(req.cookies.hobbies_v2)
-        : [];
-
-    res.json(hobbies);
+    res.send(req.cookies.hobbies_v2 || "[]");
 });
 
 // Clear hobby data
@@ -205,6 +199,6 @@ app.delete("/clear", (req, res) => {
 
 
 app.listen(port, ()=>{
-    let message = "Server running at http://localhost:${port}"
+    let message = `Server running at http://localhost:${port}`
     console.log(message);
 })
