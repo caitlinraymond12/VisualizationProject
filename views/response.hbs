@@ -1,0 +1,23 @@
+
+<h2>Your vote totals</h2>
+<ul>
+  {{#each votes}}
+    <li>{{@key}}: {{this}}</li>
+  {{/each}}
+</ul>
+<a href="/form">Vote again</a> | <button id="clearBtn">Clear my votes</button>
+<p id="message"></p>
+<script>
+  let clearBtn = document.getElementById("clearBtn");
+  let message = document.getElementById("message");
+
+  clearBtn.addEventListener("click", function () {
+            fetch("/clear", { method: "DELETE" })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (text) {
+                message.innerHTML = text;
+            });
+  });
+</script>
