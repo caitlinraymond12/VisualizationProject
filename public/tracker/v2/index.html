@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobby Tracker</title>
+  <link rel="stylesheet" href="/tracker/v2/css/style.css">
+</head>
+<body>
+  <main class="form-card">
+    <h1>Hobby Tracker</h1>
+
+    <form action="/tracker/v2/form" method="POST" id="hobbyForm">
+      <label for="hobby">Hobby</label>
+      <select id="hobby" name="hobby" required>
+        <option value="" selected disabled>Select a hobby</option>
+        <option>Gym</option>
+        <option>Rock Climbing</option>
+        <option>Reading</option>
+        <option>Scrolling</option>
+        <option>Video Games</option>
+        <option>Being With Friends</option>
+      </select>
+
+      <label for="minutesChoice">Minutes completed</label>
+      <select id="minutesChoice" required>
+        <option value="" selected disabled>Select minutes</option>
+        <option value="15">15</option>
+        <option value="30">30</option>
+        <option value="45">45</option>
+        <option value="60">60</option>
+        <option value="75">75</option>
+        <option value="90">90</option>
+        <option value="105">105</option>
+        <option value="120">120</option>
+        <option value="custom">Custom</option>
+      </select>
+      <input type="number" id="customMinutes" min="1" step="1"
+             placeholder="Enter custom minutes" hidden>
+      <input type="hidden" id="minutes" name="minutes">
+
+      <label for="dayOfWeek">Day of week</label>
+      <select id="dayOfWeek" name="dayOfWeek" required>
+        <option value="" selected disabled>Select a day</option>
+        <option>Sunday</option>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+      </select>
+
+      <button type="submit" class="primary-button">Add Entry</button>
+    </form>
+
+    <nav class="form-actions">
+      <a class="secondary-button" href="/tracker/v2/dashboard">Dashboard</a>
+      <button type="button" id="clearButton" class="text-button">Clear All</button>
+    </nav>
+  </main>
+
+  <script src="/tracker/v2/js/form.js"></script>
+</body>
+</html>

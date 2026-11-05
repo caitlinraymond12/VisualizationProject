@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobby Dashboard</title>
+  <link rel="stylesheet" href="/tracker/v2/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <h1>Hobby Dashboard</h1>
+      <a class="secondary-button" href="/tracker/v2/home">Home</a>
+    </header>
+
+    <section class="chart-grid">
+      <article class="chart-card">
+        <canvas id="dailyChart"></canvas>
+      </article>
+      <article class="chart-card doughnut-card">
+        <canvas id="totalChart"></canvas>
+      </article>
+    </section>
+
+    <section class="flower-card">
+      <div id="flowerSketch"></div>
+    </section>
+  </main>
+
+  <script src="/tracker/v2/js/dashboard.js"></script>
+  <script src="/tracker/v2/js/flowers.js"></script>
+</body>
+</html>
