@@ -84,6 +84,15 @@ However, setting `httpOnly: true` and `sameSite: lax` felt unncessary to me, as 
     });
 ```
 
+I also had to manually add the title to the charts in version 2, as it did not automatically name the charts as it did in version 1. 
+
+```js
+plugins: {
+title: { display: true, text: "Minutes Per Day" },
+legend: { position: "bottom" }
+},
+```
+
 ## How my code works (in my own words)
 
 ### Saving the cookie
@@ -236,7 +245,10 @@ function createDailyChart(dailyTotals) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { position: "bottom" } },
+      plugins: {
+        title: { display: true, text: "Minutes Per Day" },
+        legend: { position: "bottom" }
+      },
       scales: {
         x: { stacked: true },
         y: { stacked: true, beginAtZero: true, title: { display: true, text: "Minutes" } }
@@ -250,7 +262,7 @@ First, the function creates a `datasets` array by looping through each of hobby 
 
 Then, the chart is created. It gets the html element with the id "dailyChart", which is a canvas element: `<canvas id="dailyChart"></canvas>`. Then, it creates a chart with `type: bar`. The labels are set to the days of the week, and the `datasets` variable is provided as the data for the chart.  
 
-Next, the chart is configured. `responsive: true` allows it to resize with the browswer, and `maintainAspectRatio: false` allows it to use the CSS dimensions and not strictly its original proportions. The position of the legend is set to the bottom. 
+Next, the chart is configured. `responsive: true` allows it to resize with the browswer, and `maintainAspectRatio: false` allows it to use the CSS dimensions and not strictly its original proportions. The title of the chart is set to "Minutes per day" and the position of the legend is set to the bottom. 
 
 Then, the axes are configured. x and y have `stacked: true`, since I requested a stacked bar chart. Y is configured to begin at 0, and the y-axis title is set to "Minutes". 
 
@@ -291,6 +303,8 @@ The color is also determined by the index position of the hobby, using `p.fill(f
 
 
 ## Something the AI got wrong
-As far as I can tell, the AI did not get anything wrong. The cookies are persistent, the app follows the aesthetic I defined, and I cannot find a way to break the application. 
+The AI did a great job with generally functionality. The cookies are persistent, the app follows the aesthetic I defined, and I cannot find a way to break the application. 
+
+In version 2, it did not automatically gives the charts titles, as version 1 did. 
 
 In some cases, the functions seem to be a little too complex, but nothing that breaks the functionality of the application or makes the code too hard to understand. I only changed one of these complexities, as noted in a previous section. 

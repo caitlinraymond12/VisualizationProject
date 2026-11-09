@@ -69,7 +69,10 @@ function createDailyChart(dailyTotals) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { position: "bottom" } },
+      plugins: {
+        title: { display: true, text: "Minutes Per Day" },
+        legend: { position: "bottom" }
+      },
       scales: {
         x: { stacked: true },
         y: { stacked: true, beginAtZero: true, title: { display: true, text: "Minutes" } }
@@ -93,7 +96,10 @@ function createTotalChart() {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { position: "bottom" } }
+      plugins: {
+        title: { display: true, text: "Minutes Per Hobby" },
+        legend: { position: "bottom" }
+      }
     }
   });
 }
